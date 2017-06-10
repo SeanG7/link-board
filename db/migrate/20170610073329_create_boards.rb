@@ -1,7 +1,6 @@
 class CreateBoards < ActiveRecord::Migration[5.0]
   def change
     create_table :boards do |t|
-      t.primary_key :ref
       t.string :name
 
       t.timestamps
