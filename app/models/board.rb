@@ -1,3 +1,3 @@
 class Board < ApplicationRecord
-  include UuidHelper
+   include UuidHelper
 end
