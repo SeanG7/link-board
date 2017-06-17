@@ -12,8 +12,8 @@
 
 ActiveRecord::Schema.define(version: 20170612101750) do
 
-  create_table "boards", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "uuid",       limit: 36, null: false
+  create_table "boards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "uuid"
     t.string   "name",       limit: 50, null: false
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -23,8 +23,11 @@ ActiveRecord::Schema.define(version: 20170612101750) do
     t.string   "name"
     t.string   "url"
     t.text     "desc",       limit: 65535
+    t.integer  "board_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.index ["board_id"], name: "index_links_on_board_id", using: :btree
   end
 
+  add_foreign_key "links", "boards"
 end

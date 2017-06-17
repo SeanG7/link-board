@@ -4,6 +4,7 @@ class CreateLinks < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :url
       t.text :desc
+      t.references :board, foreign_key: true
 
       t.timestamps
     end
