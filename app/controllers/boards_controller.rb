@@ -14,7 +14,7 @@ class BoardsController < ApplicationController
   def new; end
 
   def show
-    @board = Board.find(params[:id])
+    @board = Board.where(uuid: params[:id]).first
   end
 
   private

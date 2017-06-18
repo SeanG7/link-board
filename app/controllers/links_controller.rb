@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   def create
-    @board = Board.find(params[:board_id])
+    @board = Board.where(uuid: params[:board_id]).first
     @link = @board.links.create(link_params)
     redirect_to board_path(@board)
   end
