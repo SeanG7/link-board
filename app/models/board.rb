@@ -3,6 +3,6 @@ class Board < ApplicationRecord
   has_many :links
   validates :name, presence: true, length: { minimum: 1 }
   def to_param
-    "#{id}-#{uuid}"
+    uuid
   end
 end
